@@ -1,0 +1,40 @@
+---
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+interface Props {
+    subtitle?: string;
+    authors?: Array<string>;
+}
+
+const title = "EL DIARIO DE LA ALDEA";
+const { subtitle = "", authors = [] } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="relative h-full sm:mx-12">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <title>{title}</title>
+    </head>
+    <body class="sm:absolute h-full w-full bg-white flex- flex-col">
+        <Header title={title} subtitle={subtitle} />
+        <div class="h-full">
+            <slot />
+        </div>
+        <Footer authors={authors} />
+    </body>
+</html>
+
+<style is:global>
+    @import url(https://db.onlinewebfonts.com/c/db4f07f18e369037f711f62b4a5201b8?family=MajeritDeck+Roman);
+    .majerit {
+        font-family: "MajeritDeck Roman";
+    }
+
+    .versalitas {
+        font-variant: small-caps;
+    }
+</style>

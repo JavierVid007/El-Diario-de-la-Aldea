@@ -1,0 +1,11 @@
+---
+interface Props {
+    authors?: Array<string>;
+}
+
+const { authors } = Astro.props;
+---
+
+<div class="w-full bottom-0 p-4 bg-gradient-to-t from-blue-500 to-blue-200 rounded-t-2xl mt-auto">
+    {authors && authors.map((a) => <p>{a}</p>)}
+</div>

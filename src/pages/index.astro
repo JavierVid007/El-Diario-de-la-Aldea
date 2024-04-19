@@ -1,0 +1,24 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Preview from "@components/Preview.astro";
+
+let principalPosts = await Astro.glob("./noticias/**/principal/*.md");
+let lateralPosts = await Astro.glob("./noticias/**/lateral/*.md");
+let footPosts = await Astro.glob("./noticias/**/foot/*.md");
+---
+
+<Layout subtitle="Noticias día a día">
+    <div class="p-4 sm:p-0 flex flex-col">
+        <div class="sm:flex sm:p-4">
+            <div class="">
+                {principalPosts.map((p) => <Preview post={p} />)}
+            </div>
+            <div>
+                {lateralPosts.map((p) => <Preview post={p} />)}
+            </div>
+        </div>
+        <div class="sm:p-4 sm:flex">
+            {footPosts.map((p) => <Preview post={p} />)}
+        </div>
+    </div>
+</Layout>
