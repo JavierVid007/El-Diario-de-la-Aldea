@@ -4,11 +4,10 @@ import Footer from "@components/Footer.astro";
 
 interface Props {
     subtitle?: string;
-    authors?: Array<string>;
 }
 
 const title = "EL DIARIO DE LA ALDEA";
-const { subtitle = "", authors = [] } = Astro.props;
+const { subtitle = "" } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,12 +18,12 @@ const { subtitle = "", authors = [] } = Astro.props;
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <title>{title}</title>
     </head>
-    <body class="sm:absolute h-full w-full bg-white flex- flex-col">
+    <body class="sm:absolute h-full w-full bg-white flex flex-col">
         <Header title={title} subtitle={subtitle} />
         <div class="h-full">
             <slot />
         </div>
-        <Footer authors={authors} />
+        <Footer />
     </body>
 </html>
 

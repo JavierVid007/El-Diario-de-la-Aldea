@@ -6,6 +6,17 @@ interface Props {
 const { authors } = Astro.props;
 ---
 
-<div class="w-full bottom-0 p-4 bg-gradient-to-t from-blue-500 to-blue-200 rounded-t-2xl mt-auto">
-    {authors && authors.map((a) => <p>{a}</p>)}
+<div
+    class="w-full bottom-0 px-8 py-4 bg-gradient-to-t from-blue-500 to-blue-200 rounded-t-2xl mt-auto flex items-center text-center space-x-1"
+>
+    {
+        authors && Array.isArray(authors) && authors.length > 0 && (
+            <>
+                <p class="majerit">Autores:</p>
+                {authors.map((a) => (
+                    <p class="majerit">{a}</p>
+                ))}
+            </>
+        )
+    }
 </div>
